@@ -3,8 +3,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo build of Anouer project succeed'
+                sh 'mvn clean install -DskipTests'
+            }
+
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
             }
         }
     }
 }
+
